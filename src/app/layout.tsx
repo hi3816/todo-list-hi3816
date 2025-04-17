@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import QueryProvider from '@/components/QueryProvider'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="ko">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <QueryProvider>
+          <header className="bg-blue-500 text-white p-4 text-xl font-bold">hi3816의 투두 앱</header>
+            {children}
+          <footer className="bg-gray-100 text-center p-4 text-sm text-gray-600">
+            © 2025 hi3816. All rights reserved.
+          </footer>
+        </QueryProvider>
       </body>
     </html>
   );
