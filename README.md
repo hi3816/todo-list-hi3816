@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Supabase Todo App
 
-## Getting Started
+This is a simple Todo List web application built with **Next.js 14 (App Router)** and **Supabase** as the backend database.
 
-First, run the development server:
+<br/>
+
+## 🚀 Demo
+
+👉 [배포 링크 바로가기](https://your-vercel-url.vercel.app)
+
+<br/>
+
+## ✨ Features
+
+- ✅ Supabase 연동을 통한 **실시간 데이터 CRUD**
+- ✅ **React Query**를 활용한 데이터 캐싱 및 상태관리
+- ✅ 컴포넌트 기반의 구조화된 코드
+- ✅ Tailwind CSS로 구성된 반응형 UI
+
+<br/>
+
+## 📌 구현 기능
+
+- 🟢 할 일 목록 조회 (Read)
+- 🆕 할 일 추가 (Create)
+- 🔄 완료 상태 토글 (Update)
+- ❌ 할 일 삭제 (Delete)
+
+<br/>
+
+## 🛠️ Tech Stack
+
+- **Next.js 14 (App Router)**
+- **TypeScript**
+- **Supabase (Database & API)**
+- **React Query**
+- **Tailwind CSS**
+
+<br/>
+
+## 🧪 실행 방법 (로컬 개발)
 
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
