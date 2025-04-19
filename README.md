@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌿 hi3816의 Todo List
 
-## Getting Started
+할 일을 간편하게 추가하고, 완료 여부를 체크하며, Supabase에 저장하는 투두 리스트입니다.  
+(로그인 기능은 제외하고, Supabase와의 CRUD API 연결까지 구현하였습니다.)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 시연 링크
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 **[배포된 Todo 앱 바로가기](https://todo-list-hi3816.vercel.app/todos)**  
+(*Vercel로 배포된 링크입니다. 실시간으로 사용해보실 수 있어요.*)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> 위 링크는 실제 배포된 프로젝트로, Supabase를 통해 할 일을 저장하고 관리할 수 있습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✅ 주요 기능
 
-To learn more about Next.js, take a look at the following resources:
+- ✅ 할 일 추가
+- ✅ 할 일 완료 체크 / 해제
+- ✅ 할 일 삭제
+- ✅ 필터링 (전체 / 완료 / 미완료)
+- ✅ Supabase를 통한 실시간 데이터 연동
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 기술 스택
 
-## Deploy on Vercel
+- **Next.js (App Router)**
+- **TypeScript**
+- **Tailwind CSS**
+- **TanStack Query (React Query)**
+- **Supabase** (Database & API)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔗 사용된 API
+
+- Supabase 테이블: `todos`
+- 컬럼 구성:
+  - `id`: 기본 키
+  - `title`: 할 일 텍스트
+  - `completed`: 완료 여부 (boolean)
+
+---
+
+## ⚙️ 실행 방법
+
+1. Supabase 프로젝트 생성 후 `.env.local`에 환경변수 등록:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=🔑 your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=🔑 your-anon-key
