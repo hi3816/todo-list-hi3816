@@ -32,9 +32,12 @@ import { supabase } from '@/lib/supabase'
 
 export const useAddTodo = () => {
   const queryClient = useQueryClient()
+  
   return useMutation({
     mutationFn: async (title: string) => {
-      const { data, error } = await supabase.from('todos').insert({ title, completed: false }).select().single()
+      const { data: {user} } = await supabase.auth.getUser() //유저정보 가져오기
+      const { data, error } = await supabase.from('todos').insert({ title, completed: false, user_id: user?.id}).select().single()
+      
       if (error) throw new Error(error.message)
       return data
     },
