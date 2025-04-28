@@ -37,6 +37,7 @@ export default function LoginPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full border-2 border-[#c0aa8a] rounded-full px-4 py-2 mb-4 text-sm focus:outline-none"
+          onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
         />
 
         {error && <p className="text-red-500 text-sm text-center mb-3">{error}</p>}
