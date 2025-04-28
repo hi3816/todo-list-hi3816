@@ -27,6 +27,18 @@ export default function TodoListPage() {
     if (filter === 'todo') return !todo.completed
   })
 
+  const formatDate = (isoString: string | null) => {
+    if (!isoString) return '-';
+    const date = new Date(isoString);
+    return date.toLocaleString('ko-KR', {
+      year: '2-digit',    // 연도 2자리
+      month: '2-digit',   // 월 2자리
+      day: '2-digit',     // 일 2자리
+      hour: '2-digit',    // 시 2자리
+      minute: '2-digit',  // 분 2자리
+    });
+  };
+
   if (isLoading) return <p className="text-center mt-20">불러오는 중...</p>
   if (isError) return <p className="text-center mt-20 text-red-500">에러 발생!</p>
 
@@ -77,7 +89,7 @@ export default function TodoListPage() {
           {filterTodos?.map((todo) => (
             <li
               key={todo.id}
-              className="bg-white rounded-xl px-4 py-3 flex justify-between items-center shadow-md"
+              className="bg-white rounded-xl px-4 py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-md"
             >
               <div className="flex items-center gap-3">
                 <input
@@ -94,12 +106,20 @@ export default function TodoListPage() {
                   {todo.title}
                 </span>
               </div>
-              <button
-                onClick={() => deleteTodo(todo.id)}
-                className="text-[#945034] text-lg hover:scale-110 transition"
-              >
-                ❌
-              </button>
+
+              <div className = "flex flex-row sm:flex-col-reverse items-center gap-2 sm:items-end mt-2 sm:mt-0 w-full sm:w-auto justify-between">
+                <div className="flex flex-col text-[10px] text-gray-500 whitespace-nowrap">
+                  <p>등록: {formatDate(todo.created_at)}</p>
+                  {todo.completed && <p>완료: {formatDate(todo.completed_at)}</p>}
+                </div>
+
+                <button
+                  onClick={() => deleteTodo(todo.id)}
+                  className="text-[#945034] text-lg hover:scale-110 transition"
+                >
+                  ❌
+                </button>
+              </div>
             </li>
           ))}
         </ul>

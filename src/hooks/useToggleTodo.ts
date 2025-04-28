@@ -28,9 +28,15 @@ export const useToggleTodo = () => {
   const queryClient = useQueryClient()
   return useMutation({
     mutationFn: async (todo: Todo) => {
+      const newCompleted = !todo.completed;
+      const completedAt = newCompleted ? new Date().toISOString() : null;
+      
       const { data, error } = await supabase
         .from('todos')
-        .update({ completed: !todo.completed })
+        .update({ 
+          completed: newCompleted ,
+          completed_at : completedAt,
+        })
         .eq('id', todo.id)
         .select()
         .single()
