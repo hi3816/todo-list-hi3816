@@ -14,9 +14,10 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { supabase } from '@/lib/supabase'
+import { Todo } from '@/types/todo'
 
 export const useTodos = () => {
-  return useQuery({
+  return useQuery<Todo[]>({
     queryKey: ['todos'],
     queryFn: async () => {
       const { data, error } = await supabase.from('todos').select('*')
