@@ -109,7 +109,7 @@ export default function TodoListPage() {
 
               <div className = "flex flex-row sm:flex-col-reverse items-center gap-2 sm:items-end mt-2 sm:mt-0 w-full sm:w-auto justify-between">
                 <div className="flex flex-col text-[10px] text-gray-500 whitespace-nowrap">
-                  <p>등록: {formatDate(todo.created_at)}</p>
+                  <p>등록: {formatDate(todo.create_at)}</p>
                   {todo.completed && <p>완료: {formatDate(todo.completed_at)}</p>}
                 </div>
 
